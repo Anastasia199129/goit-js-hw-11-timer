@@ -1,4 +1,3 @@
-
 class CountdownTimer {
   constructor({ targetDate }) {
     this.targetDate = targetDate;
@@ -32,12 +31,15 @@ class CountdownTimer {
       const differenceData = this.targetDate - curentData;
       const timeObject = this.calculateData(differenceData);
       this.textContent(timeObject);
+      if (differenceData < 0) {
+        this.refs.conteiner.textContent = 'Акция завершена';
+      }
     }, 1000);
   }
 }
 
 const start = new CountdownTimer({
-  targetDate: new Date('Jul 17, 2021'),
+  targetDate: new Date('jun 25, 2021'),
 });
 
 start.start();
