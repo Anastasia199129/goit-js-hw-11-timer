@@ -32,7 +32,11 @@ class CountdownTimer {
       const timeObject = this.calculateData(differenceData);
       this.textContent(timeObject);
       if (differenceData < 0) {
-        this.refs.conteiner.textContent = 'Акция завершена';
+        // this.refs.conteiner.textContent = 'Aкция завершена';
+        this.refs.deis.textContent = '00';
+        this.refs.hours.textContent = '00';
+        this.refs.mins.textContent = '00';
+        this.refs.secs.textContent = '00';
       }
     }, 1000);
   }
