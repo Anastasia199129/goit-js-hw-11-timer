@@ -26,18 +26,19 @@ class CountdownTimer {
   }
 
   start() {
-    setInterval(() => {
+    const setId = setInterval(() => {
       const curentData = Date.now();
       const differenceData = this.targetDate - curentData;
       const timeObject = this.calculateData(differenceData);
-      this.textContent(timeObject);
       if (differenceData < 0) {
-        // this.refs.conteiner.textContent = 'Aкция завершена';
+        clearInterval(setId);
         this.refs.deis.textContent = '00';
         this.refs.hours.textContent = '00';
         this.refs.mins.textContent = '00';
         this.refs.secs.textContent = '00';
+        return;
       }
+      this.textContent(timeObject);
     }, 1000);
   }
 }
